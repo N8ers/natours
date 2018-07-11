@@ -6,3 +6,29 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+}
+
+.header {
+    height: 95vh; /*if you look the background doesn't cover the whole page */
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(126, 213, 111, 0.8), 
+        rgba(40, 180, 131, 0.8)), 
+        url("../img/hero.jpg"); /*the reasoning for this order is first to last in order of stacking .. so green first, then jpg*/
+    background-size: cover; /*this has some responsive design to it - don't forget about this! */
+    background-position: top; /*ensures that if you resize the image it stays sticky at the top so it doesn't zoom in in weird ways!!! */
+
+}

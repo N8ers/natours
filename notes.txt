@@ -1,0 +1,12 @@
+what I will learn in this lesson
+
+-best ways to perform basic reset using universal selector
+using the universal selector (*) you can add margin and padding
+see more in the css file around line 10
+the box-size property being border-box; it changes box model so border and padding are not added to total width or height - so they go away!
+line height "vh" - at every point the height of the box should be the vh% of what is seen... i think the height is 95% of the view port height in the headers changes
+background size cover - tries to fill the whole space that it covers
+
+how to set project-wide fonr definitions
+
+how to clip parts of elements using clip-path
