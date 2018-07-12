@@ -62,6 +62,8 @@ body {
     transform/translate - this works because 
     it no longer gets pinged by the parent element,
     but by the element itself!!! */
+    text-align: center;
+    /*this will effect all nested stuff! That's why btn is aligned */
 }
 
 .heading-primary {
@@ -69,6 +71,7 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -143,3 +146,32 @@ notice a shake at the end of an animation? check out
    it determins of the back side of the element is visible 
    it comes in handy for rotating animations 
 */
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    /* transitions MUST be on initial states */
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0.2);
+}
+
+/* sudo class!!! to style elements under a special condition */
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
