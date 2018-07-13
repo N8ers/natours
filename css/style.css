@@ -130,6 +130,17 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 
 /* The 0% is where we start
 100% is where we end - we can also have anything inbetween!
@@ -156,6 +167,7 @@ notice a shake at the end of an animation? check out
     border-radius: 100px;
     transition: all .2s;
     /* transitions MUST be on initial states */
+    position: relative;
 }
 
 .btn:hover {
@@ -175,3 +187,50 @@ notice a shake at the end of an animation? check out
     color: #777;
 }
 
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /*z-index defines the position of elements if one is on top of another*/
+    transition: all .4s;
+
+}
+
+.btn-white::after {
+    background-color: #fff;
+    
+}
+
+/* after sudo element - behind button
+MUST HAVE CONTNENT AND DISPLAY attributes
+sudo elements are treated like the child of the btn
+so the height/width are 100% of the btn's height/width
+*/ 
+
+.btn:hover::after{
+    transform: scaleX(1.5) scaleY(1.6); /* how it scales on X/Y axis */
+    /*changes the size of an element - in this case 2x larger than before*/
+    /* NOW we want to add a transition
+    TRANSITIONS MUST be set on initial state (in this case btn::after 
+    {transition: all .4s} */
+    opacity: 0;
+    /* after animation it disapears */
+}
+/* an after sudo element, only when btn is hovered */
+.btn-animated {
+    /* animation-name: moveInBottom;
+    animation-duration: 1.5s; 
+    the above can be shortened to below*/
+    animation: moveInBottom .5s ease-out .75s;
+    /* animation: name duration type delay */
+    animation-fill-mode: backwards;
+    /* automatically apply style of 0% before animation starts
+    this is important because we dont want it visible before the delay kicks in */
+
+}

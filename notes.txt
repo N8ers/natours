@@ -10,3 +10,30 @@ background size cover - tries to fill the whole space that it covers
 how to set project-wide fonr definitions
 
 how to clip parts of elements using clip-path
+
+*** A note on inline, block, and inline-block
+
+inline elements: 
+-respect L&R margins/padding but NOT top and btm
+-CANNOT have a width and height set
+-allow elements to sit on L&R 
+
+block elements:
+-respect above
+-forces a line break after the block elements
+-aquires full-width UNLESS the width is defined
+
+inline-block elements:
+-allow other elements to sit L&R 
+-respects top & btm margin/padding
+-respects height and width
+
+*** A note on z-index
+z-index relates when stacked/overlapping eachother
+by defult the element that comes last in markup covers the previous
+by giving a larger z-index to one property it will cover those with lower z-indexs
+IF a child element has a z-index is is only relative to the parent element
+and cannot overlap an element outside of the parent with a higher z-index
+
+z-index only works with elements that have a position 
+(either relative absolute or fixed)
