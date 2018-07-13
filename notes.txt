@@ -37,3 +37,34 @@ and cannot overlap an element outside of the parent with a higher z-index
 
 z-index only works with elements that have a position 
 (either relative absolute or fixed)
+
+***THREE PILLARS of WRITTING GOOD HTML & CSS***
+I. Responsive Design
+a website that works well across all devices and screen sizes
+II. Maintainable & Scalable Code
+III. Web Performance
+
+What happens to CSS when we load up a page?
+Loads HTML -> Parses HTML -> DOM
+                          -> Load CSS -> Parse CSS (cascade & CSS values) -> css object model (CSSOM)
+DOM & CSSOM -> render tree -> website rendering -> final rendered website
+
+How CSS is Parsed 
+
+quick termnology review: 
+
+selector          ->      .my-class {
+decloration block ->           
+declaration       ->      propery: declared value;
+                          }
+
+Cascade - process of combining different stylesheets and resolving conflicts
+between different CSS rules and declarations, when more than one rules
+applies to a certain element.
+
+SPECIFICITY;
+1) Inline styles (in html)         2) IDs 
+3) classes/pseudo-classes, attributes       4) elements, psudo-elements
+Same level of specificty? -the last one wins!
+universal selector * has no specificity value - so anything after takes precedent
+

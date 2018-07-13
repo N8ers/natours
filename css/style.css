@@ -11,6 +11,8 @@ Dark green: #28b485
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* The width and height properties (and max/min properties) 
+    includes content, padding & border */
 }
 
 body {
@@ -222,7 +224,8 @@ so the height/width are 100% of the btn's height/width
     opacity: 0;
     /* after animation it disapears */
 }
-/* an after sudo element, only when btn is hovered */
+    /* an after sudo element, only when btn is hovered */
+
 .btn-animated {
     /* animation-name: moveInBottom;
     animation-duration: 1.5s; 
