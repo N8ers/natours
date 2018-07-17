@@ -63,8 +63,32 @@ between different CSS rules and declarations, when more than one rules
 applies to a certain element.
 
 SPECIFICITY;
-1) Inline styles (in html)         2) IDs 
-3) classes/pseudo-classes, attributes       4) elements, psudo-elements
+1) Inline styles (in html)         
+2) IDs 
+3) classes/pseudo-classes, attributes       
+4) elements, psudo-elements
 Same level of specificty? -the last one wins!
 universal selector * has no specificity value - so anything after takes precedent
 
+How CSS Calues are prossed
+rem px % vw
+1) declared value - author declorations
+2) cascaed value - after cascade
+3) specified value - defaulting fi no cascaed value
+4) computed value - calculated relative calues to absolute
+5) used value - final calculations based on layout
+6) actual value - browser and device restrictions
+
+How units are converted from relative to absolute (px)
+% (fonts) - if 150% that means it'll be 150% of the parent element 
+% (lengths) - x% of parents computed width
+
+em (fonts) - x * parent (computed font-size)
+em (lengths) - x * current element (computed font-size)
+rem - uses the ROOT font size (x * root = computed font-size)
+
+vh - 1vh = 1% of viewport height
+vw - 1vw = 1% of viewport width
+
+inheritance; a way of propogating property values from parents to children
+every CSS property must have a value 
