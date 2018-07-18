@@ -85,10 +85,13 @@ How units are converted from relative to absolute (px)
 
 em (fonts) - x * parent (computed font-size)
 em (lengths) - x * current element (computed font-size)
-rem - uses the ROOT font size (x * root = computed font-size)
+rem - 'root em' uses the ROOT font size (x * root = computed font-size)
 
 vh - 1vh = 1% of viewport height
 vw - 1vw = 1% of viewport width
 
 inheritance; a way of propogating property values from parents to children
 every CSS property must have a value 
+
+converting px to rem;
+why use rem instead of px? 

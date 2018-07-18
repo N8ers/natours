@@ -7,21 +7,40 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before{
+    /*by selecting the psudo elements we keep things from getting cattywompus*/
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     /* The width and height properties (and max/min properties) 
     includes content, padding & border */
+    box-sizing: inherit;
+    /* this forces everything inside to take it's parents box-sizing */
+}
+
+html {
+    /* font-size: 10px; */
+    /*why are we doing this? to set a root font-size.
+    why 10px? because then 1rem = 10px - it's just easier to calculate */
+
+    font-size: 62.5%;
+    /* why this number? default font-size is 16px 
+    but we want the root font size value to be equel to 10px
+    so... 10/16 =.625 = 62.5% */
+    /* NOW we're changing from px value, becuse px removes the availibility for 
+    those with bad eye sight to change the defaule font-size */
+    /* REMs ARE NOT SUPPORTED BELOW EX 9! YOUR SITE WILL NOT WORK */
+    box-sizing: border-box;
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
 }
 
 .header {
@@ -41,12 +60,12 @@ body {
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px; /* where do these pixles start? from the parent element (header) */
+    top: 4rem;
+    left: 4rem; /* where do these pixles start? from the parent element (header) */
 }
 
 .logo {
-    height: 35px; /* the width will be automatically set up by browser (it would be the same if we only uncluded the width) */
+    height: 3.5rem; /* the width will be automatically set up by browser (it would be the same if we only uncluded the width) */
 }
 
 .logo:hover {
@@ -73,15 +92,15 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main {
     display: block;
     /*why are we using block level elements? because they take up the width that they have available AND add line breaks after and before them */
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -93,9 +112,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
 
     animation-name: moveInRight;
     animation-duration: 1s;
@@ -104,13 +123,13 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px) rotate(0deg);
+        transform: translateX(-10rem) rotate(0deg);
     }
     60% {
         transform: rotate(180deg);
     }
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
     100% {
         opacity: 1;
@@ -121,10 +140,10 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     100% {
         opacity: 1;
@@ -135,7 +154,7 @@ body {
 @keyframes moveInBottom {
     0%{
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
     100%{
         opacity: 1;
@@ -164,22 +183,23 @@ notice a shake at the end of an animation? check out
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s;
     /* transitions MUST be on initial states */
     position: relative;
+    font-size: 1.6rem;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0.2);
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0.2);
 }
 
 /* sudo class!!! to style elements under a special condition */
@@ -194,7 +214,7 @@ notice a shake at the end of an animation? check out
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
