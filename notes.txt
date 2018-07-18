@@ -95,3 +95,57 @@ every CSS property must have a value
 
 converting px to rem;
 why use rem instead of px? 
+
+The box model - 
+fill area: area that gets filled with background color or background image
+this is everything BUT the margin 
+if width/height is not specified, the box model will use the content to determin size
+
+total width = right border + right padding + specified width + left padding + left border
+total height = top border + top padding + specified height + bottom padding + bottom border
+
+box-sizing: border-box; using the border-box, the height and width of the entire box
+including padding and border NOT just for the content area 
+
+block-level boxes; examples display: flex/list-item/table 
+-Elements formatted visually as blocks
+-100% of parent's width
+-vertically, one after another
+-box-model applies as showed 
+
+inline boxes; examples display: inline
+-content is distrubted in lines (only occupies space content needs)
+-occupies only content's space
+-no line-breaks 
+-no heights and widths they won't work
+- can only control paddings and margins only horizontal (left-right)
+
+inline-block boxes; examples: inline-block
+-acts like inline boxes but work as block level inside
+-occupies only content's space
+-no line-breaks-box-model applies as shown
+
+positioning schemes: 
+normal flow; (position: relative)
+-default positioning scheme
+-not floated;
+-not absolutely positioned
+-siimply, elements are laid out according to their natural order in the Code
+
+floats; (float: left/ float-right)
+-element is removed from the normal flow
+-text and inline elements will wrap around the floated element
+-the container will not adjust its height to the element
+-pushes element to the left or right until it touches the edge of it's contating box
+
+absolute; (absolute / fixed)
+-element is removed from the normal flow
+-no impact on surrounding content or elements
+-we use css properties; top,btm,left,right to offset the element from its 
+relatiely positioned container
+
+Stacking Context; 
+what determins the order of elements rendered on page
+the most widley know is z-index but there are others
+
+CSS Architecture, Components and BEM
