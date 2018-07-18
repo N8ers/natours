@@ -149,3 +149,26 @@ what determins the order of elements rendered on page
 the most widley know is z-index but there are others
 
 CSS Architecture, Components and BEM
+Think - about the layout of your webpage or web app before writting code 
+        (use *component-driven design
+        divide the page into modular building blocks that make up interfaces 
+        held together by layout of the page
+        re-usable across a project, and between different projects)
+Build - your layout in HTML and CSS with consistent structure for naming classes
+        there are many ways to skin this cat; object-oriented css/SMACSS/BEM
+        BEM - block-element-modifier
+        .block{}                        .recipe{}
+        .block__element {}              .recipe__stat{}
+        .block__element--modifier{}     .recipe__stat-name{}
+        let's say you've got btns, you want rules for all btns, 
+        some need to be more specific so you change them as you go deeper
+Architext - create a logical architecture for your css with files and folders
+        there are many ways to skin this cat; ITCSS/SMACSS/7-1 pattern
+        7-1 pattern 
+        7 diferent folders for partial Sass files, 
+        1 main Sass file to import all other files into
+        a compiled CSS stylesheet
+        (7 folders; base/ components/ layout/ pages/ themes/ abstracts/ vendors/)
+    
+
+
