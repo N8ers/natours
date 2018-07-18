@@ -58,13 +58,13 @@ body {
 
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem; /* where do these pixles start? from the parent element (header) */
 }
 
-.logo {
+.header__logo {
     height: 3.5rem; /* the width will be automatically set up by browser (it would be the same if we only uncluded the width) */
 }
 
@@ -72,7 +72,7 @@ body {
     animation: moveInRight 10s ease-out;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -95,7 +95,7 @@ body {
     margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
     /*why are we using block level elements? because they take up the width that they have available AND add line breaks after and before them */
     font-size: 6rem;
@@ -110,7 +110,7 @@ body {
     /* animation-delay: 3s; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -204,7 +204,7 @@ notice a shake at the end of an animation? check out
 
 /* sudo class!!! to style elements under a special condition */
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -224,7 +224,7 @@ notice a shake at the end of an animation? check out
 
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
     
 }
@@ -246,7 +246,7 @@ so the height/width are 100% of the btn's height/width
 }
     /* an after sudo element, only when btn is hovered */
 
-.btn-animated {
+.btn--animated {
     /* animation-name: moveInBottom;
     animation-duration: 1.5s; 
     the above can be shortened to below*/
