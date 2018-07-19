@@ -238,3 +238,18 @@ put styles in there then other styles use it
 why use an extend instead of a mixin? 
 I'm not really sure - I don't super understand them and they don't 
 seem to be 100% nessessary
+
+Command line
+
+on windows ls is dir 
+
+NPM Packages: Let's Install SASS Locally!
+node.js - allows devs to write and run JS applications on the server
+Devs started using noed.js to write tools to help with local web dev
+NPM - command line interface that lalows devs to install and manage 
+packages on local computers - such as tools/libraries/frameworks 
+
+How to install Sass;
+command line... (or intigrated terminal in VS)
+to check if node is installed "node -v"
+make package.json "npm init"
