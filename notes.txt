@@ -206,3 +206,35 @@ How do we fix this? CLEARFIX
 FOR AN EXAMPLE VISIT THE CODEPEN BELOW
 https://codepen.io/n8ers/pen/oMzjzv?editors=1100
 
+mixin;
+a reusable piece of code - think of it as a varable 
+set it up like this
+@mixin clearfix {
+        property: declared value;
+}
+then call it somewhere else with
+@include clearfix;
+you can add arguments too!
+
+@mixin style-link-text($col) { color: $col; }
+include style-link-text($color-text-light);
+
+YOU CAN USE FUNCTIONS TOO!!!!!!!
+
+@function divide ($a, $b) {
+        @return $a / $b;
+}
+
+nav {
+        margin: divide(60, 2) * 1px;
+}
+
+OKAY so this isn't a realistic example, but it's a good idea of how it works
+ps the reason we are multiplying by 1px is to give the result a unit
+
+extends - write a place holders and then and have other slectors 
+put styles in there then other styles use it
+
+why use an extend instead of a mixin? 
+I'm not really sure - I don't super understand them and they don't 
+seem to be 100% nessessary
