@@ -18,5 +18,8 @@
   "homepage": "https://github.com/N8ers/natours#readme",
   "devDependencies": {
     "node-sass": "^4.9.2"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }

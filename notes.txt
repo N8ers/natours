@@ -245,7 +245,7 @@ on windows ls is dir
 
 NPM Packages: Let's Install SASS Locally!
 node.js - allows devs to write and run JS applications on the server
-Devs started using noed.js to write tools to help with local web dev
+Devs started using noed.js to writes tools to help with local web dev
 NPM - command line interface that lalows devs to install and manage 
 packages on local computers - such as tools/libraries/frameworks 
 
@@ -254,3 +254,4 @@ command line... (or intigrated terminal in VS)
 to check if node is installed "node -v"
 make package.json "npm init"
 get Sass "npm install node-sass --save-dev"
+npm install jquery (if you want it)
