@@ -194,3 +194,15 @@ make them -- $primary-color: #f8ed69
 then use them -- background-color: $color-primary;
 nesting?
 dont forget about your &, it writes out the selector at that current point
+
+
+When using float - it colapses height SO any background you have will go away
+How do we fix this? CLEARFIX
+.clearfix::after {
+        content: "";
+        clear: both;
+        display: table;         }
+
+FOR AN EXAMPLE VISIT THE CODEPEN BELOW
+https://codepen.io/n8ers/pen/oMzjzv?editors=1100
+
