@@ -253,3 +253,4 @@ How to install Sass;
 command line... (or intigrated terminal in VS)
 to check if node is installed "node -v"
 make package.json "npm init"
+get Sass "npm install node-sass --save-dev"
