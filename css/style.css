@@ -137,6 +137,7 @@ notice a shake at the end of an animation? check out
    it determins of the back side of the element is visible 
    it comes in handy for rotating animations 
 */
+
 .btn {
   /* sudo class!!! to style elements under a special condition */
   /* after sudo element - behind button
@@ -166,7 +167,8 @@ so the height/width are 100% of the btn's height/width
             TRANSITIONS MUST be set on initial state (in this case btn::after 
             {transition: all .4s} */
       opacity: 0;
-      /* after animation it disapears */ }
+      /* after animation it disapears */ 
+    }
   .btn:active {
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
