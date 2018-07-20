@@ -255,3 +255,19 @@ to check if node is installed "node -v"
 make package.json "npm init"
 get Sass "npm install node-sass --save-dev"
 npm install jquery (if you want it)
+
+OKAY let's talk about compiling scss;
+open your package.json file
+inside the "scripts" connect files 
+ex:
+ "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  }
+node-sass is telling what file type
+sass/main.scss is telling what file to use
+css/style.css is telling where the compiled sass/main.scss file should go
+this flag says "watch" 
+how do you auto reload?
+npm package - "npm install live-server -g" (the g is for global)
+
+go in command line call 'live-server'
