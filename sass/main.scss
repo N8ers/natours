@@ -44,7 +44,7 @@ body {
         to right bottom,
         rgba($color-primary-light, 0.8), 
         rgba($color-primary-dark, 0.8)), 
-        url("../img/hero.jpg"); /*the reasoning for this order is first to last in order of stacking .. so green first, then jpg*/
+    url("../img/hero.jpg"); /*the reasoning for this order is first to last in order of stacking .. so green first, then jpg*/
     background-size: cover; /*this has some responsive design to it - don't forget about this! */
     background-position: top; /*ensures that if you resize the image it stays sticky at the top so it doesn't zoom in in weird ways!!! */
     position: relative; /*this is set up for the logo-box*/
@@ -189,12 +189,12 @@ notice a shake at the end of an animation? check out
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0,0,0.2);
+    // box-shadow: 0 1rem 2rem rgba(0,0,0.2);
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0.2);
+    // box-shadow: 0 .5rem 1rem rgba(0,0,0.2);
 }
 
 /* sudo class!!! to style elements under a special condition */

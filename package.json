@@ -13,10 +13,10 @@
   "author": "NRSheryak",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/N8ers/natours/issues"
-  },
-  "homepage": "https://github.com/N8ers/natours#readme",
+    "url": "https://github.com/N8ers/natours/issues",
   "devDependencies": {
     "node-sass": "^4.9.2"
+  },
+  "homepage": "https://github.com/N8ers/natours#readme"
   }
 }

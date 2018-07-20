@@ -1,0 +1,208 @@
+*,
+*::after,
+*::before {
+  /*by selecting the psudo elements we keep things from getting cattywompus*/
+  margin: 0;
+  padding: 0;
+  /* The width and height properties (and max/min properties) 
+    includes content, padding & border */
+  box-sizing: inherit;
+  /* this forces everything inside to take it's parents box-sizing */ }
+
+html {
+  /* font-size: 10px; */
+  /*why are we doing this? to set a root font-size.
+    why 10px? because then 1rem = 10px - it's just easier to calculate */
+  font-size: 62.5%;
+  /* why this number? default font-size is 16px 
+    but we want the root font size value to be equel to 10px
+    so... 10/16 =.625 = 62.5% */
+  /* NOW we're changing from px value, becuse px removes the availibility for 
+    those with bad eye sight to change the defaule font-size */
+  /* REMs ARE NOT SUPPORTED BELOW EX 9! YOUR SITE WILL NOT WORK */
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.header {
+  height: 95vh;
+  /*if you look the background doesn't cover the whole page */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  /*the reasoning for this order is first to last in order of stacking .. so green first, then jpg*/
+  background-size: cover;
+  /*this has some responsive design to it - don't forget about this! */
+  background-position: top;
+  /*ensures that if you resize the image it stays sticky at the top so it doesn't zoom in in weird ways!!! */
+  position: relative;
+  /*this is set up for the logo-box*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /*the first and second # mean x and y refer to the axess - the order of numbers is clockwise starting upper left */ }
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  /* where do these pixles start? from the parent element (header) */ }
+
+.header__logo {
+  height: 3.5rem;
+  /* the width will be automatically set up by browser (it would be the same if we only uncluded the width) */ }
+
+.logo:hover {
+  animation: moveInRight 10s ease-out; }
+
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /*the above is in relation to the parent element */
+  transform: translate(-50%, -50%);
+  /* okay so the above is pretty cool
+    top and left indicate 
+    transform/translate - this works because 
+    it no longer gets pinged by the parent element,
+    but by the element itself!!! */
+  text-align: center;
+  /*this will effect all nested stuff! That's why btn is aligned */ }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+
+.heading-primary--main {
+  display: block;
+  /*why are we using block level elements? because they take up the width that they have available AND add line breaks after and before them */
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  /* animation-timing-function: ease-out;  --there are more of these!*/
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */ }
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation-name: moveInRight;
+  animation-duration: 1s; }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem) rotate(0deg); }
+  60% {
+    transform: rotate(180deg); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+/* The 0% is where we start
+100% is where we end - we can also have anything inbetween!
+why transform: translateX()? 
+because we want it coming in on the X axis and Left to Right
+
+ALSO - look at class heading-primary-main & heading-primary-sub
+we need to assign it the animation-name and animation-duration!
+these are the only two properties NESSESSARY 
+for an animation to work - but there are lots of others!
+
+notice a shake at the end of an animation? check out 
+   backface-visibility: hidden; under .heading-primary
+   it determins of the back side of the element is visible 
+   it comes in handy for rotating animations 
+*/
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  /* transitions MUST be on initial states */
+  position: relative;
+  font-size: 1.6rem; }
+
+.btn:hover {
+  transform: translateY(-3px); }
+
+.btn:active {
+  transform: translateY(-1px); }
+
+/* sudo class!!! to style elements under a special condition */
+.btn--white {
+  background-color: #fff;
+  color: #777; }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /*z-index defines the position of elements if one is on top of another*/
+  transition: all .4s; }
+
+.btn--white::after {
+  background-color: #fff; }
+
+/* after sudo element - behind button
+MUST HAVE CONTNENT AND DISPLAY attributes
+sudo elements are treated like the child of the btn
+so the height/width are 100% of the btn's height/width
+*/
+.btn:hover::after {
+  transform: scaleX(1.5) scaleY(1.6);
+  /* how it scales on X/Y axis */
+  /*changes the size of an element - in this case 2x larger than before*/
+  /* NOW we want to add a transition
+    TRANSITIONS MUST be set on initial state (in this case btn::after 
+    {transition: all .4s} */
+  opacity: 0;
+  /* after animation it disapears */ }
+
+/* an after sudo element, only when btn is hovered */
+.btn--animated {
+  /* animation-name: moveInBottom;
+    animation-duration: 1.5s; 
+    the above can be shortened to below*/
+  animation: moveInBottom .5s ease-out .75s;
+  /* animation: name duration type delay */
+  animation-fill-mode: backwards;
+  /* automatically apply style of 0% before animation starts
+    this is important because we dont want it visible before the delay kicks in */ }
