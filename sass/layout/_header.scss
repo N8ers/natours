@@ -1,0 +1,42 @@
+.header {
+    height: 95vh; /*if you look the background doesn't cover the whole page */
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)), 
+    url("../img/hero.jpg"); /*the reasoning for this order is first to last in order of stacking .. so green first, then jpg*/
+    background-size: cover; /*this has some responsive design to it - don't forget about this! */
+    background-position: top; /*ensures that if you resize the image it stays sticky at the top so it doesn't zoom in in weird ways!!! */
+    position: relative; /*this is set up for the logo-box*/
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*the first and second # mean x and y refer to the axess - the order of numbers is clockwise starting upper left */
+
+    &__logo-box{
+        position: absolute;
+        top: 4rem;
+        left: 4rem; /* where do these pixles start? from the parent element (header) */
+    }
+
+    &__logo {
+        height: 3.5rem; /* the width will be automatically set up by browser (it would be the same if we only uncluded the width) */
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /*the above is in relation to the parent element */
+        transform: translate(-50%, -50%);
+        /* okay so the above is pretty cool
+        top and left indicate 
+        transform/translate - this works because 
+        it no longer gets pinged by the parent element,
+        but by the element itself!!! */
+        text-align: center;
+        /*this will effect all nested stuff! That's why btn is aligned */
+    }
+}
+
+.logo:hover {
+    animation: moveInRight 10s ease-out;
+}

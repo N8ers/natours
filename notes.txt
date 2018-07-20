@@ -272,3 +272,6 @@ npm package - "npm install live-server -g" (the g is for global)
 
 go in command line call 'live-server'
 
+Implementing 7-1 CSS Architecture with Sass
+so make a folder and name it _base.scss THEN it auto corrolates to the folder
+but don't forget we still need to @import on the main.scss 
