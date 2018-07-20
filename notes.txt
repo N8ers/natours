@@ -275,3 +275,34 @@ go in command line call 'live-server'
 Implementing 7-1 CSS Architecture with Sass
 so make a folder and name it _base.scss THEN it auto corrolates to the folder
 but don't forget we still need to @import on the main.scss 
+
+-Responive design-
+1) fluid gids and layouts; to allow content to easilt adapt to the current viewport width 
+used to browse the website. Uses % rather than px for all layout-related lengths.
+
+2) flexible/responsive images; Images behave differently than text content, 
+and so we need to ensure that they also adapt nicely to the current viewport.
+
+3) media queries; to change styles on certain viewpoert widths (breakpoints), 
+allowing us to create different version of our website for different widths
+
+Float Layouts - a bunch of boxes side by side - still used in modern websites 
+because it still WORKS in all websites
+
+Flexbox - think of it as left to right 
+
+CSS Grid - a great way of setting the whole 2 demential thing up!
+
+How to architect and build a simple grid systems!
+a grid is a design system 
+
+each column will be called a row
+
+width vs max-width
+width; 
+max-width; if enough space it will have the width specified, 
+but if not then it will be less than that
+
+margin: 0 auto; 
+center a block element inside another block element! 
+IT's gotta be in a block!!!
