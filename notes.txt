@@ -271,3 +271,4 @@ how do you auto reload?
 npm package - "npm install live-server -g" (the g is for global)
 
 go in command line call 'live-server'
+

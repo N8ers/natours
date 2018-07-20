@@ -1,9 +1,9 @@
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
-
 $color-grey-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 
 *,
@@ -55,35 +55,34 @@ body {
 
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*the first and second # mean x and y refer to the axess - the order of numbers is clockwise starting upper left */
 
-}
+    &__logo-box{
+        position: absolute;
+        top: 4rem;
+        left: 4rem; /* where do these pixles start? from the parent element (header) */
+    }
 
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; /* where do these pixles start? from the parent element (header) */
-}
+    &__logo {
+        height: 3.5rem; /* the width will be automatically set up by browser (it would be the same if we only uncluded the width) */
+    }
 
-.header__logo {
-    height: 3.5rem; /* the width will be automatically set up by browser (it would be the same if we only uncluded the width) */
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /*the above is in relation to the parent element */
+        transform: translate(-50%, -50%);
+        /* okay so the above is pretty cool
+        top and left indicate 
+        transform/translate - this works because 
+        it no longer gets pinged by the parent element,
+        but by the element itself!!! */
+        text-align: center;
+        /*this will effect all nested stuff! That's why btn is aligned */
+    }
 }
 
 .logo:hover {
     animation: moveInRight 10s ease-out;
-}
-
-.header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /*the above is in relation to the parent element */
-    transform: translate(-50%, -50%);
-    /* okay so the above is pretty cool
-    top and left indicate 
-    transform/translate - this works because 
-    it no longer gets pinged by the parent element,
-    but by the element itself!!! */
-    text-align: center;
-    /*this will effect all nested stuff! That's why btn is aligned */
 }
 
 .heading-primary {
@@ -92,32 +91,33 @@ body {
 
     backface-visibility: hidden;
     margin-bottom: 6rem;
+    &--main {
+        display: block;
+        /*why are we using block level elements? because they take up the width that they have available AND add line breaks after and before them */
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+    
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+    
+        /* animation-timing-function: ease-out;  --there are more of these!*/
+        /* animation-iteration-count: 3; */
+        /* animation-delay: 3s; */
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+    
+        animation-name: moveInRight;
+        animation-duration: 1s;
+    }
 }
 
-.heading-primary--main {
-    display: block;
-    /*why are we using block level elements? because they take up the width that they have available AND add line breaks after and before them */
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
 
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-
-    /* animation-timing-function: ease-out;  --there are more of these!*/
-    /* animation-iteration-count: 3; */
-    /* animation-delay: 3s; */
-}
-
-.heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-
-    animation-name: moveInRight;
-    animation-duration: 1s;
-}
 
 @keyframes moveInLeft {
     0% {
@@ -178,8 +178,9 @@ notice a shake at the end of an animation? check out
    it comes in handy for rotating animations 
 */
 
-.btn:link,
-.btn:visited {
+.btn {
+    &:link,
+    &:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -189,43 +190,37 @@ notice a shake at the end of an animation? check out
     /* transitions MUST be on initial states */
     position: relative;
     font-size: 1.6rem;
-}
+    }
 
-.btn:hover {
+    &:hover {
     transform: translateY(-3px);
-    // box-shadow: 0 1rem 2rem rgba(0,0,0.2);
-}
+    box-shadow: 0 1rem 2rem rgba($color-black,0.2);
 
-.btn:active {
+        &::after {
+            transform: scaleX(1.5) scaleY(1.6); /* how it scales on X/Y axis */
+            /*changes the size of an element - in this case 2x larger than before*/
+            /* NOW we want to add a transition
+            TRANSITIONS MUST be set on initial state (in this case btn::after 
+            {transition: all .4s} */
+            opacity: 0;
+            /* after animation it disapears */
+
+        }
+    }
+
+    &:active {
     transform: translateY(-1px);
-    // box-shadow: 0 .5rem 1rem rgba(0,0,0.2);
+    box-shadow: 0 .5rem 1rem rgba($color-black,0.2);
 }
 
 /* sudo class!!! to style elements under a special condition */
 
-.btn--white {
+    &--white {
     background-color: $color-white;
     color: $color-grey-dark;
-}
-
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    /*z-index defines the position of elements if one is on top of another*/
-    transition: all .4s;
-
-}
-
-.btn--white::after {
-    background-color: $color-white;
-    
+        &::after {
+            background-color: $color-white;
+    }
 }
 
 /* after sudo element - behind button
@@ -234,18 +229,22 @@ sudo elements are treated like the child of the btn
 so the height/width are 100% of the btn's height/width
 */ 
 
-.btn:hover::after{
-    transform: scaleX(1.5) scaleY(1.6); /* how it scales on X/Y axis */
-    /*changes the size of an element - in this case 2x larger than before*/
-    /* NOW we want to add a transition
-    TRANSITIONS MUST be set on initial state (in this case btn::after 
-    {transition: all .4s} */
-    opacity: 0;
-    /* after animation it disapears */
-}
+    &::after{
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        /*z-index defines the position of elements if one is on top of another*/
+        transition: all .4s;
+    }
     /* an after sudo element, only when btn is hovered */
 
-.btn--animated {
+    &--animated {
     /* animation-name: moveInBottom;
     animation-duration: 1.5s; 
     the above can be shortened to below*/
@@ -254,5 +253,7 @@ so the height/width are 100% of the btn's height/width
     animation-fill-mode: backwards;
     /* automatically apply style of 0% before animation starts
     this is important because we dont want it visible before the delay kicks in */
-
+    }
 }
+
+
