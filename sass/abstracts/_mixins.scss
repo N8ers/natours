@@ -1,0 +1,9 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both; //doesn't matter if left or right
+    }
+}
+
+//clearfix appends a pseudo element after the element 
