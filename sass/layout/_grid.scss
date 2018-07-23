@@ -1,4 +1,22 @@
 .row {
-    width: 114rem;
+    max-width: $grid-width; //if the view port is less than 114 then it will take up 100% of the space available
+    background-color: #eee;
+    margin: 0 auto;
+
+    &:not(:last-child){
+        margin-bottom: $gutter-vertical;
+    }
+
+    .col-1-of-2{
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+        background-color: orangered;
+        float: left;
+        
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+    }
+
 }
 
+//.row.not() - a 'not' sudo class - everything except the last child- in this case

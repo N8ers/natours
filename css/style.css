@@ -60,6 +60,9 @@ body {
   color: #777;
   padding: 3rem; }
 
+.o {
+  letter-spacing: -.5em; }
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -145,7 +148,17 @@ so the height/width are 100% of the btn's height/width
     this is important because we dont want it visible before the delay kicks in */ }
 
 .row {
-  width: 114rem; }
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2);
+    background-color: orangered;
+    float: left; }
+    .row .col-1-of-2:not(:last-child) {
+      margin-right: 6rem; }
 
 .header {
   height: 95vh;
@@ -184,10 +197,6 @@ so the height/width are 100% of the btn's height/width
 
 .logo:hover {
   animation: moveInRight 10s ease-out; }
-
-.row {
-  width: 114rem;
-  background-color: red; }
 
 /* The 0% is where we start
 100% is where we end - we can also have anything inbetween!

@@ -306,3 +306,5 @@ but if not then it will be less than that
 margin: 0 auto; 
 center a block element inside another block element! 
 IT's gotta be in a block!!!
+
+gutter: space between rows
