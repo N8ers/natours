@@ -1,3 +1,33 @@
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem) rotate(0deg); }
+  60% {
+    transform: rotate(180deg); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
 *,
 *::after,
 *::before {
@@ -29,6 +59,93 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    /*why are we using block level elements? because they take up the width that they have available AND add line breaks after and before them */
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* animation-timing-function: ease-out;  --there are more of these!*/
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation-name: moveInRight;
+    animation-duration: 1s; }
+
+.btn {
+  /* sudo class!!! to style elements under a special condition */
+  /* after sudo element - behind button
+MUST HAVE CONTNENT AND DISPLAY attributes
+sudo elements are treated like the child of the btn
+so the height/width are 100% of the btn's height/width
+*/
+  /* an after sudo element, only when btn is hovered */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    /* transitions MUST be on initial states */
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      transform: scaleX(1.5) scaleY(1.6);
+      /* how it scales on X/Y axis */
+      /*changes the size of an element - in this case 2x larger than before*/
+      /* NOW we want to add a transition
+            TRANSITIONS MUST be set on initial state (in this case btn::after 
+            {transition: all .4s} */
+      opacity: 0;
+      /* after animation it disapears */ }
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /*z-index defines the position of elements if one is on top of another*/
+    transition: all .4s; }
+  .btn--animated {
+    /* animation-name: moveInBottom;
+    animation-duration: 1.5s; 
+    the above can be shortened to below*/
+    animation: moveInBottom .5s ease-out .75s;
+    /* animation: name duration type delay */
+    animation-fill-mode: backwards;
+    /* automatically apply style of 0% before animation starts
+    this is important because we dont want it visible before the delay kicks in */ }
+
+.row {
+  width: 114rem; }
 
 .header {
   height: 95vh;
@@ -68,59 +185,9 @@ body {
 .logo:hover {
   animation: moveInRight 10s ease-out; }
 
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    /*why are we using block level elements? because they take up the width that they have available AND add line breaks after and before them */
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    /* animation-timing-function: ease-out;  --there are more of these!*/
-    /* animation-iteration-count: 3; */
-    /* animation-delay: 3s; */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation-name: moveInRight;
-    animation-duration: 1s; }
-
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem) rotate(0deg); }
-  60% {
-    transform: rotate(180deg); }
-  80% {
-    transform: translateX(1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+.row {
+  width: 114rem;
+  background-color: red; }
 
 /* The 0% is where we start
 100% is where we end - we can also have anything inbetween!
@@ -137,64 +204,3 @@ notice a shake at the end of an animation? check out
    it determins of the back side of the element is visible 
    it comes in handy for rotating animations 
 */
-
-.btn {
-  /* sudo class!!! to style elements under a special condition */
-  /* after sudo element - behind button
-MUST HAVE CONTNENT AND DISPLAY attributes
-sudo elements are treated like the child of the btn
-so the height/width are 100% of the btn's height/width
-*/
-  /* an after sudo element, only when btn is hovered */ }
-  .btn:link, .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s;
-    /* transitions MUST be on initial states */
-    position: relative;
-    font-size: 1.6rem; }
-  .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-    .btn:hover::after {
-      transform: scaleX(1.5) scaleY(1.6);
-      /* how it scales on X/Y axis */
-      /*changes the size of an element - in this case 2x larger than before*/
-      /* NOW we want to add a transition
-            TRANSITIONS MUST be set on initial state (in this case btn::after 
-            {transition: all .4s} */
-      opacity: 0;
-      /* after animation it disapears */ 
-    }
-  .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-  .btn--white {
-    background-color: #fff;
-    color: #777; }
-    .btn--white::after {
-      background-color: #fff; }
-  .btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    /*z-index defines the position of elements if one is on top of another*/
-    transition: all .4s; }
-  .btn--animated {
-    /* animation-name: moveInBottom;
-    animation-duration: 1.5s; 
-    the above can be shortened to below*/
-    animation: moveInBottom .5s ease-out .75s;
-    /* animation: name duration type delay */
-    animation-fill-mode: backwards;
-    /* automatically apply style of 0% before animation starts
-    this is important because we dont want it visible before the delay kicks in */ }
