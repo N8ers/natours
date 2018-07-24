@@ -308,3 +308,20 @@ center a block element inside another block element!
 IT's gotta be in a block!!!
 
 gutter: space between rows
+
+using <main> in html 5 tells browsers that it's the main section
+Emmet - to write a div with a class type,
+.test (tab) -then it auto fills
+
+for a section with a class 
+section.section-about (tab)
+
+/* how to make a background linear gradient
+display: inline-block;
+background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+-webkit-background-clip: text;
+color: transparent;
+
+centering text;
+have a parent and hit text-align:center;
+child element be inline-block

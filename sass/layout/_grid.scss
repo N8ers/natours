@@ -1,6 +1,5 @@
 .row {
     max-width: $grid-width; //if the view port is less than 114 then it will take up 100% of the space available
-    background-color: #eee;
     margin: 0 auto;
 
     &:not(:last-child){
@@ -13,7 +12,6 @@
     //this is a selector, that selects all of it's kind
     //this specific one will select all classes that start with "col-"
     //replace ^ w/ $ and it'll select by it's eneding
-        background-color: orangered;
         float: left;
         
         &:not(:last-child) {
