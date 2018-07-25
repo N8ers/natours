@@ -9,6 +9,7 @@
     background-position: top; /*ensures that if you resize the image it stays sticky at the top so it doesn't zoom in in weird ways!!! */
     position: relative; /*this is set up for the logo-box*/
 
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*the first and second # mean x and y refer to the axess - the order of numbers is clockwise starting upper left */
 
     &__logo-box{
