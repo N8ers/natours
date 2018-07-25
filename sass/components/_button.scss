@@ -43,6 +43,14 @@
     }
 }
 
+&--green {
+    background-color: $color-primary;
+    color: $color-white;
+        &::after {
+            background-color: $color-white;
+    }
+}
+
 /* after sudo element - behind button
 MUST HAVE CONTNENT AND DISPLAY attributes
 sudo elements are treated like the child of the btn
