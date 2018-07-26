@@ -324,4 +324,4 @@ color: transparent;
 
 centering text;
 have a parent and hit text-align:center;
-child element be inline-block
+child element be inline-blockd
