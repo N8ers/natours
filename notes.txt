@@ -325,3 +325,11 @@ color: transparent;
 centering text;
 have a parent and hit text-align:center;
 child element be inline-blockd
+
+radial-gradient; starts in the center and goes out
+
+check box hack;
+
+cubis bezier curves
+
+transform-origin
